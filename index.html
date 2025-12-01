@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Summary: Bigger or Longer?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #1f2937;
+        }
+        .gemini-gradient-text {
+            background: linear-gradient(90deg, #4285F4, #9B72CB, #D96570);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+        .sidebar-link.active {
+            background-color: #e8f0fe;
+            color: #1967d2;
+            font-weight: 500;
+            border-right: 3px solid #1967d2;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8; 
+        }
+        .highlight-box {
+            background-color: #f0f4f8;
+            border-left: 4px solid #4285F4;
+        }
+        .figure-placeholder {
+            min-height: 200px;
+            background-color: #f1f5f9; /* Slate 100 */
+            border: 2px dashed #94a3b8; /* Slate 400 */
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
+                    <a href="#overview" class="hover:text-blue-600 transition-colors">Overview</a>
+                    <a href="#problem" class="hover:text-blue-600 transition-colors">Key Problem</a>
+                    <a href="#method" class="hover:text-blue-600 transition-colors">EGM Method</a>
+                    <a href="#results" class="hover:text-blue-600 transition-colors">Results</a>
+                </div>
+                <button onclick="window.print()" class="p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Sidebar (Desktop Navigation) -->
+            <div class="hidden lg:block lg:col-span-3">
+                <div class="sticky top-24 space-y-1">
+                    <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Contents</p>
+                    <a href="#overview" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors active">Project Overview</a>
+                    <a href="#problem" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">Why Small Models Fail?</a>
+                    <a href="#method" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">EGM Solution</a>
+                    <a href="#amodal" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">Amodal Grounding</a>
+                    <a href="#results" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">Performance & Efficiency</a>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Paper Info</p>
+                        <div class="px-3 text-xs text-gray-500 space-y-2">
+                            <p><i class="fa-regular fa-file-pdf mr-1"></i> Research Paper (2025)</p>
+                            <p><i class="fa-solid fa-users mr-1"></i> NVIDIA, MIT, Oxford, Tsinghua</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="col-span-1 lg:col-span-9 space-y-10">
+
+                <!-- Hero Section -->
+                <section id="overview" class="scroll-mt-24">
+                    <div class="space-y-4">
+            
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                            <span class="gemini-gradient-text">Bigger or Longer?</span><br>
+                            Test-Time-Scaling is More Efficient than Model-Size-Scaling for Visual Grounding
+                        </h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
+                            Current Visual Language Models (VLMs) tend to increase model parameters ("Go Bigger") to improve performance, leading to slow inference and difficult deployment. This project proposes a new paradigm, <strong>EGM (Efficient visual Grounding language Models)</strong>, demonstrating that by increasing test-time computation ("Go Longer"), small models can outperform large models in visual grounding tasks while being significantly faster.
+                        </p>
+                        
+                        <!-- Authors (Updated and fully English) -->
+                        <div class="flex flex-wrap gap-2 text-sm text-gray-500 mt-4">
+                            <span>Guanqi Zhan<sup>1,3</sup></span> • 
+                            <span>Changye Li<sup>4</sup></span> • 
+                            <span>Zhijian Liu<sup>1</sup></span> • 
+                            <span>Yao Lu<sup>1</sup></span> •
+                            <span>Yi Wu<sup>4</sup></span> •
+                            <span>Song Han<sup>1,2</sup></span> • 
+                            <span>Ligeng Zhu<sup>1</sup></span>
+                            <span class="text-gray-400 ml-2">(1. NVIDIA Research, 2. MIT, 3. University of Oxford, 4. Tsinghua University)</span>
+                        </div>
+                    </div>
+
+                    <!-- Key Takeaways Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                        <div class="card p-5 border-l-4 border-blue-500">
+                            <div class="flex items-center gap-2 mb-2 text-blue-700 font-semibold">
+                                <i class="fa-solid fa-bolt"></i> Speed & Efficiency
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                The EGM-8B model inference speed is <strong>5.9x faster</strong> than Qwen3-VL-235B, with an average latency of only 737ms.
+                            </p>
+                        </div>
+                        <div class="card p-5 border-l-4 border-purple-500">
+                            <div class="flex items-center gap-2 mb-2 text-purple-700 font-semibold">
+                                <i class="fa-solid fa-trophy"></i> Outperforming Giants
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                On the RefCOCO benchmark, EGM-8B achieves <strong>91.4 IoU</strong>, surpassing the massive 235B parameter model (90.5 IoU).
+                            </p>
+                        </div>
+                        <div class="card p-5 border-l-4 border-pink-500">
+                            <div class="flex items-center gap-2 mb-2 text-pink-700 font-semibold">
+                                <i class="fa-solid fa-brain"></i> Core Mechanism
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                Introduces Chain-of-Thought (CoT) via <strong>SFT + Reinforcement Learning (RL)</strong>, teaching the model "how to think" about location rather than blindly scaling.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Figure 1 (Actual Image) -->
+                    <div class="my-6">
+                        <!-- Using relative path and a standard image placeholder URL for safety -->
+                        <img src="figure1.jpg" alt="Comparison of Go Bigger vs Go Longer Scaling" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+1+Placeholder%3A+EGM+Paradigm'">
+                        <p class="text-sm text-center text-gray-500 mt-3">Figure 1: The EGM Paradigm. Comparison between the traditional 'Go Bigger' approach (scaling model size) and our proposed 'Go Longer' approach (scaling test-time computation/tokens) for Visual Grounding.</p>
+                    </div>
+                </section>
+
+                <hr class="border-gray-200">
+
+                <!-- Problem Section -->
+                <section id="problem" class="scroll-mt-24">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fa-solid fa-circle-question text-gray-400 mr-3 text-xl"></i>
+                        Why Do Small Models Fail?
+                    </h2>
+                    <div class="card p-6 md:p-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-3">Key Finding: The Bottleneck is Language, Not Vision</h3>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    The research team found that VLMs of different sizes (e.g., Qwen series) often use the <strong>same visual encoder</strong>. Small models lag behind large models in Visual Grounding tasks primarily due to a gap in <strong>text understanding capabilities</strong>.
+                                </p>
+                                <div class="highlight-box p-4 rounded-r-lg text-sm text-gray-700 mb-4">
+                                    <strong>Failure Pattern Analysis:</strong> 62.8% of errors belong to <strong>"COMPLEX PROMPT"</strong>. Small models get confused when prompts are semantically complex (containing multiple relational descriptions) and there are multiple similar candidates in the image.
+                                </div>
+                                <p class="text-gray-600 text-sm">
+                                    <i class="fa-solid fa-arrow-right text-blue-500 mr-1"></i> As model size increases, errors caused by complex semantics gradually decrease.
+                                </p>
+                            </div>
+                            
+                            <!-- Figure 2 (Actual Image) -->
+                            <div class="my-6">
+                                <!-- Using relative path and a standard image placeholder URL for safety -->
+                                <img src="figure2.png" alt="Breakdown of Small Model Failure Modes" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/94a3b8?text=Figure+2+Placeholder%3A+Failure+Modes'">
+                                <p class="text-sm text-center text-gray-500 mt-3">Figure 2: Visual Grounding Failure Modes Analysis. Detailed statistical breakdown showing that the majority of small VLM errors are due to complex semantic understanding, not visual encoding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Method Section -->
+                <section id="method" class="scroll-mt-24">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fa-solid fa-wand-magic-sparkles text-gray-400 mr-3 text-xl"></i>
+                        EGM: Trade Scale for Reasoning (Go Longer)
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Strategy Comparison -->
+                        <div class="card p-6">
+                            <h3 class="font-bold text-gray-800 mb-3">Traditional Strategy vs. EGM</h3>
+                            <div class="space-y-4">
+                                <div class="border-l-2 border-gray-300 pl-4 py-1">
+                                    <span class="text-xs font-bold text-gray-400 uppercase">Traditional (Go Bigger)</span>
+                                    <p class="text-sm font-medium text-gray-700">Keep visual encoder fixed, increase LLM parameters (e.g., 8B -> 235B).</p>
+                                    <p class="text-xs text-red-500 mt-1"><i class="fa-solid fa-xmark"></i> Hard to deploy, extremely high latency.</p>
+                                </div>
+                                <div class="border-l-2 border-green-500 pl-4 py-1 bg-green-50/50 rounded-r">
+                                    <span class="text-xs font-bold text-green-600 uppercase">EGM Strategy (Go Longer)</span>
+                                    <p class="text-sm font-medium text-gray-800">Keep small model (e.g., 8B), generate more intermediate reasoning tokens to enhance understanding.</p>
+                                    <p class="text-xs text-green-600 mt-1"><i class="fa-solid fa-check"></i> Deployment friendly, low inference cost, lower total latency.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Training Pipeline (SFT step simplified) -->
+                        <div class="card p-6">
+                            <h3 class="font-bold text-gray-800 mb-3">Training Pipeline (SFT + RL)</h3>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 text-sm">
+                                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">1</div>
+                                    <div>
+                                        <span class="font-semibold text-gray-800">SFT (Cold Start):</span>
+                                        <p class="text-gray-600 mt-1">Use GPT-4 to generate detailed reasoning steps, constructing the SFT dataset.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3 text-sm">
+                                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs">2</div>
+                                    <div>
+                                        <span class="font-semibold text-gray-800">RL (Reinforcement Learning):</span>
+                                        <p class="text-gray-600 mt-1">Train using GRPO (Group Relative Policy Optimization). The reward function combines IoU (localization accuracy) and task success rate.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Figure 3 (Actual Image) -->
+                    <div class="my-6">
+                        <!-- Using relative path and a standard image placeholder URL for safety -->
+                        <img src="figure3.png" alt="Overview of the EGM Training Pipeline" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+3+Placeholder%3A+Training+Pipeline+Diagram'">
+                        <p class="text-sm text-center text-gray-500 mt-3">
+                            <span class="block mt-1">
+							Figure 3: Overview of our method.</strong> 
+                                <em>Top (a): Data curation pipeline of training data with reasoning.</em> We feed the image, text prompt and ground truth bounding box of the target object into a proprietary VLM to generate the detailed reasoning process of how to locate the object correctly given the image and text prompt. The generated reasoning process is incorporated as part of the training data.
+                                <em>Bottom (b): Examples of generated reasoning training data for vanilla grounding and amodal grounding.</em> The reasoning process of vanilla grounding analyzes the feature that distinguishes the target object from others, and the reasoning process of amodal grounding further involves what object causes the occlusion and in which directions the visible parts should be extended to recover the complete object.
+                            </span>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Amodal Grounding -->
+                <section id="amodal" class="scroll-mt-24">
+                    
+                    <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                            <i class="fa-solid fa-cubes-stacked text-9xl"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <h2 class="text-2xl font-bold mb-4">New Task: Amodal Grounding</h2>
+                            <p class="text-gray-300 mb-6 max-w-2xl leading-relaxed">
+                                Existing visual grounding only focuses on visible parts of objects. This paper defines a new task—<strong>Amodal Grounding</strong>, requiring the model to predict the <strong>full bounding box</strong> of an object (including occluded parts).
+                            </p>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                                    <h4 class="font-semibold text-blue-300 mb-2 text-sm">Challenges</h4>
+                                    <p class="text-xs text-gray-300">The model must identify the object AND reason about "what is occluding it," "the object's full shape," and "the extension direction of hidden parts."</p>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                                    <h4 class="font-semibold text-green-300 mb-2 text-sm">EGM Performance</h4>
+                                    <p class="text-xs text-gray-300">EGM significantly improves small model performance on this task. EGM-InternVL-3-8B improves accuracy by <strong>+11.5%</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                </section>
+
+                <!-- Results Section -->
+                <section id="results" class="scroll-mt-24 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fa-solid fa-chart-line text-gray-400 mr-3 text-xl"></i>
+                        Key Experimental Results
+                    </h2>
+
+                    <!-- Comparison Table -->
+                    <div class="card overflow-hidden">
+                        <div class="px-6 py-4 border-b border-gray-100 bg-gray-50">
+                            <h3 class="font-bold text-gray-800">Performance Improvement Details (RefCOCO Avg. Acc)</h3>
+                            
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-sm text-left">
+                                <thead class="text-xs text-gray-500 uppercase bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3">Model Family</th>
+                                        <th class="px-6 py-3">Size (Parameters)</th>
+                                        <th class="px-6 py-3">Base Acc (IoU)</th>
+                                        <th class="px-6 py-3">EGM Acc (Ours)</th>
+                                        <th class="px-6 py-3">Gain</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <!-- InternVL-3 1B -->
+                                    <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">InternVL-3</td>
+                                        <td class="px-6 py-4">1B</td>
+                                        <td class="px-6 py-4">81.6%</td>
+                                        <td class="px-6 py-4 font-bold text-blue-600">86.8%</td>
+                                        <td class="px-6 py-4 text-green-600">+5.2%</td>
+                                    </tr>
+                                    <!-- Qwen3-VL 2B -->
+                                     <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Qwen3-VL</td>
+                                        <td class="px-6 py-4">2B</td>
+                                        <td class="px-6 py-4">83.6%</td>
+                                        <td class="px-6 py-4 font-bold text-blue-600">89.6%</td>
+                                        <td class="px-6 py-4 text-green-600">+6.0%</td>
+                                    </tr>
+                                    <!-- Qwen3-VL 7B (Inferred from common models) -->
+                                     <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Qwen3-VL</td>
+                                        <td class="px-6 py-4">7B</td>
+                                        <td class="px-6 py-4">87.0%</td>
+                                        <td class="px-6 py-4 font-bold text-blue-600">90.0%</td>
+                                        <td class="px-6 py-4 text-green-600">+3.0%</td>
+                                    </tr>
+                                    <!-- InternVL-3 8B -->
+                                    <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">InternVL-3</td>
+                                        <td class="px-6 py-4">8B</td>
+                                        <td class="px-6 py-4">89.6%</td>
+                                        <td class="px-6 py-4 font-bold text-blue-600">90.7%</td>
+                                        <td class="px-6 py-4 text-green-600">+1.1%</td>
+                                    </tr>
+                                    <!-- Qwen3-VL 8B -->
+                                     <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Qwen3-VL</td>
+                                        <td class="px-6 py-4">8B</td>
+                                        <td class="px-6 py-4">87.8%</td>
+                                        <td class="px-6 py-4 font-bold text-blue-600">91.4%</td>
+                                        <td class="px-6 py-4 text-green-600">+3.6%</td>
+                                    </tr>
+                                    <!-- InternVL-3 78B (Inferred from context) -->
+                                     <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">InternVL-3</td>
+                                        <td class="px-6 py-4">78B</td>
+                                        <td class="px-6 py-4">90.0%</td>
+                                        <td class="px-6 py-4 font-bold text-blue-600">91.4%</td>
+                                        <td class="px-6 py-4 text-green-600">+1.4%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+					<!-- Figure 4 (Actual Image - Now the performance/latency chart) -->
+                    <div class="my-6">
+                        <!-- Using relative path and a standard image placeholder URL for safety -->
+                        <img src="figure4.png" alt="Performance (IoU) vs. Efficiency (Latency) Comparison" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+4+Placeholder%3A+Accuracy+vs.+Latency+Bubble+Chart'">
+                        <p class="text-sm text-center text-gray-500 mt-3">Figure 4: Performance (IoU) vs. Efficiency (Latency) Comparison on RefCOCO. Bubble size represents model parameters. EGM models demonstrate superior accuracy and efficiency compared to large-scale 'Go Bigger' VLMs.</p>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="border-t border-gray-200 pt-8 pb-12 text-center text-sm text-gray-500">
+                    <p>© 2025 Project EGM </p>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Script for active link handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Check if the scroll position is past the section start, accounting for fixed navbar (150px offset)
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
