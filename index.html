@@ -175,8 +175,11 @@
 
                     <!-- Figure 1 (Actual Image) -->
                     <div class="my-6">
-                        <!-- Using relative path and a standard image placeholder URL for safety -->
-                        <img src="figure1.jpg" alt="Comparison of Go Bigger vs Go Longer Scaling" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='figure1.jpg'>
+                        <!-- 修正: 直接指向本地图片 figure1.jpg, 失败时回退到占位符 -->
+                       <img src="figure1.jpeg" 
+                            alt="Comparison of Go Bigger vs Go Longer Scaling" 
+                            class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+1+Placeholder%3A+EGM+Paradigm'">
                         <p class="text-sm text-center text-gray-500 mt-3">Figure 1: The EGM Paradigm. Comparison between the traditional 'Go Bigger' approach (scaling model size) and our proposed 'Go Longer' approach (scaling test-time computation/tokens) for Visual Grounding.</p>
                     </div>
                 </section>
@@ -206,8 +209,11 @@
                             
                             <!-- Figure 2 (Actual Image) -->
                             <div class="my-6">
-                                <!-- Using relative path and a standard image placeholder URL for safety -->
-                                <img src="figure2.png" alt="Breakdown of Small Model Failure Modes" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/94a3b8?text=Figure+2+Placeholder%3A+Failure+Modes'">
+                                <!-- 修正: 直接指向本地图片 figure2.png, 失败时回退到占位符 -->
+                                <img src="figure2.jpeg" 
+                                     alt="Breakdown of Small Model Failure Modes" 
+                                     class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/94a3b8?text=Figure+2+Placeholder%3A+Failure+Modes'">
                                 <p class="text-sm text-center text-gray-500 mt-3">Figure 2: Visual Grounding Failure Modes Analysis. Detailed statistical breakdown showing that the majority of small VLM errors are due to complex semantic understanding, not visual encoding.</p>
                             </div>
                         </div>
@@ -263,11 +269,14 @@
 
                     <!-- Figure 3 (Actual Image) -->
                     <div class="my-6">
-                        <!-- Using relative path and a standard image placeholder URL for safety -->
-                        <img src="figure3.png" alt="Overview of the EGM Training Pipeline" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+3+Placeholder%3A+Training+Pipeline+Diagram'">
+                        <!-- 修正: 直接指向本地图片 figure3.png, 失败时回退到占位符 -->
+                        <img src="figure3.jpeg" 
+                             alt="Overview of the EGM Training Pipeline" 
+                             class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+3+Placeholder%3A+Training+Pipeline+Diagram'">
                         <p class="text-sm text-center text-gray-500 mt-3">
                             <span class="block mt-1">
-							Figure 3: Overview of our method.</strong> 
+                            Figure 3: Overview of our method.</strong> 
                                 <em>Top (a): Data curation pipeline of training data with reasoning.</em> We feed the image, text prompt and ground truth bounding box of the target object into a proprietary VLM to generate the detailed reasoning process of how to locate the object correctly given the image and text prompt. The generated reasoning process is incorporated as part of the training data.
                                 <em>Bottom (b): Examples of generated reasoning training data for vanilla grounding and amodal grounding.</em> The reasoning process of vanilla grounding analyzes the feature that distinguishes the target object from others, and the reasoning process of amodal grounding further involves what object causes the occlusion and in which directions the visible parts should be extended to recover the complete object.
                             </span>
@@ -380,10 +389,13 @@
                             </table>
                         </div>
                     </div>
-					<!-- Figure 4 (Actual Image - Now the performance/latency chart) -->
+                    <!-- Figure 4 (Actual Image - Now the performance/latency chart) -->
                     <div class="my-6">
-                        <!-- Using relative path and a standard image placeholder URL for safety -->
-                        <img src="figure4.png" alt="Performance (IoU) vs. Efficiency (Latency) Comparison" class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+4+Placeholder%3A+Accuracy+vs.+Latency+Bubble+Chart'">
+                        <!-- 修正: 直接指向本地图片 figure4.png, 失败时回退到占位符 -->
+                        <img src="figure4.jpeg" 
+                             alt="Performance (IoU) vs. Efficiency (Latency) Comparison" 
+                             class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+4+Placeholder%3A+Accuracy+vs.+Latency+Bubble+Chart'">
                         <p class="text-sm text-center text-gray-500 mt-3">Figure 4: Performance (IoU) vs. Efficiency (Latency) Comparison on RefCOCO. Bubble size represents model parameters. EGM models demonstrate superior accuracy and efficiency compared to large-scale 'Go Bigger' VLMs.</p>
                     </div>
                 </section>
