@@ -95,30 +95,10 @@
     </nav>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- Left Sidebar (Desktop Navigation) -->
-            <div class="hidden lg:block lg:col-span-3">
-                <div class="sticky top-24 space-y-1">
-                    <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Contents</p>
-                    <a href="#overview" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors active">Project Overview</a>
-                    <a href="#problem" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">Why Small Models Fail?</a>
-                    <a href="#method" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">EGM Solution</a>
-                    <a href="#amodal" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">Amodal Grounding</a>
-                    <a href="#results" class="sidebar-link block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100 transition-colors">Performance & Efficiency</a>
-                    
-                    <div class="mt-8 pt-6 border-t border-gray-200">
-                        <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Paper Info</p>
-                        <div class="px-3 text-xs text-gray-500 space-y-2">
-                            <p><i class="fa-regular fa-file-pdf mr-1"></i> Research Paper (2025)</p>
-                            <p><i class="fa-solid fa-users mr-1"></i> NVIDIA, MIT, Oxford, Tsinghua</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 gap-8">
 
             <!-- Main Content -->
-            <main class="col-span-1 lg:col-span-9 space-y-10">
+            <main class="col-span-1 space-y-10">
 
                 <!-- Hero Section -->
                 <section id="overview" class="scroll-mt-24">
@@ -128,21 +108,47 @@
                             <span class="gemini-gradient-text">Bigger or Longer?</span><br>
                             Test-Time-Scaling is More Efficient than Model-Size-Scaling for Visual Grounding
                         </h1>
+                        
+                        <!-- Authors (Updated and fully English) -->
+                        <div class="mt-4 text-sm">
+                            <div class="flex flex-wrap gap-2 text-gray-700 mb-2">
+                                <span>Guanqi Zhan<sup>1,3*</sup></span> • 
+                                <span>Changye Li<sup>4*</sup></span> • 
+                                <span>Zhijian Liu<sup>1</sup></span> • 
+                                <span>Yao Lu<sup>1</sup></span> •
+                                <span>Yi Wu<sup>4</sup></span> •
+                                <span>Song Han<sup>1,2</sup></span> • 
+                                <span>Ligeng Zhu<sup>1</sup></span>
+                            </div>
+                            <div class="text-gray-500 mb-3">
+                                <sup>1</sup>NVIDIA Research, <sup>2</sup>MIT, <sup>3</sup>University of Oxford, <sup>4</sup>Tsinghua University
+                            </div>
+                            <div class="flex flex-wrap gap-4 text-sm">
+                                <a href="#github" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">
+                                    <i class="fab fa-github mr-1"></i>[Github]
+                                </a>
+                                <a href="#data" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">
+                                    <i class="fa-solid fa-database mr-1"></i>[Data]
+                                </a>
+                                <a href="#model" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">
+                                    <i class="fa-solid fa-cube mr-1"></i>[Model]
+                                </a>
+                            </div>
+                        </div>
+                        
                         <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
                             Current Visual Language Models (VLMs) tend to increase model parameters ("Go Bigger") to improve performance, leading to slow inference and difficult deployment. This project proposes a new paradigm, <strong>EGM (Efficient visual Grounding language Models)</strong>, demonstrating that by increasing test-time computation ("Go Longer"), small models can outperform large models in visual grounding tasks while being significantly faster.
                         </p>
-                        
-                        <!-- Authors (Updated and fully English) -->
-                        <div class="flex flex-wrap gap-2 text-sm text-gray-500 mt-4">
-                            <span>Guanqi Zhan<sup>1,3</sup></span> • 
-                            <span>Changye Li<sup>4</sup></span> • 
-                            <span>Zhijian Liu<sup>1</sup></span> • 
-                            <span>Yao Lu<sup>1</sup></span> •
-                            <span>Yi Wu<sup>4</sup></span> •
-                            <span>Song Han<sup>1,2</sup></span> • 
-                            <span>Ligeng Zhu<sup>1</sup></span>
-                            <span class="text-gray-400 ml-2">(1. NVIDIA Research, 2. MIT, 3. University of Oxford, 4. Tsinghua University)</span>
-                        </div>
+                    </div>
+
+                    <!-- Figure 4 (Actual Image - Now the performance/latency chart) -->
+                    <div class="my-6">
+                        <!-- 修正: 直接指向本地图片 figure4.png, 失败时回退到占位符 -->
+                        <img src="figure4.jpeg" 
+                             alt="Performance (IoU) vs. Efficiency (Latency) Comparison" 
+                             class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+4+Placeholder%3A+Accuracy+vs.+Latency+Bubble+Chart'">
+                        <p class="text-sm text-center text-gray-500 mt-3">Figure 1: Performance (IoU) vs. Efficiency (Latency) Comparison on RefCOCO. Bubble size represents model parameters. EGM models demonstrate superior accuracy and efficiency compared to large-scale 'Go Bigger' VLMs.</p>
                     </div>
 
                     <!-- Key Takeaways Cards -->
@@ -180,7 +186,7 @@
                             alt="Comparison of Go Bigger vs Go Longer Scaling" 
                             class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
                             onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+1+Placeholder%3A+EGM+Paradigm'">
-                        <p class="text-sm text-center text-gray-500 mt-3">Figure 1: The EGM Paradigm. Comparison between the traditional 'Go Bigger' approach (scaling model size) and our proposed 'Go Longer' approach (scaling test-time computation/tokens) for Visual Grounding.</p>
+                        <p class="text-sm text-center text-gray-500 mt-3">Figure 2: The EGM Paradigm. Comparison between the traditional 'Go Bigger' approach (scaling model size) and our proposed 'Go Longer' approach (scaling test-time computation/tokens) for Visual Grounding.</p>
                     </div>
                 </section>
 
@@ -214,7 +220,7 @@
                                      alt="Breakdown of Small Model Failure Modes" 
                                      class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
                                      onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/94a3b8?text=Figure+2+Placeholder%3A+Failure+Modes'">
-                                <p class="text-sm text-center text-gray-500 mt-3">Figure 2: Visual Grounding Failure Modes Analysis. Detailed statistical breakdown showing that the majority of small VLM errors are due to complex semantic understanding, not visual encoding.</p>
+                                <p class="text-sm text-center text-gray-500 mt-3">Figure 3: Visual Grounding Failure Modes Analysis. Detailed statistical breakdown showing that the majority of small VLM errors are due to complex semantic understanding, not visual encoding.</p>
                             </div>
                         </div>
                     </div>
@@ -276,7 +282,7 @@
                              onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+3+Placeholder%3A+Training+Pipeline+Diagram'">
                         <p class="text-sm text-center text-gray-500 mt-3">
                             <span class="block mt-1">
-                            Figure 3: Overview of our method.</strong> 
+                            Figure 4: Overview of our method.</strong> 
                                 <em>Top (a): Data curation pipeline of training data with reasoning.</em> We feed the image, text prompt and ground truth bounding box of the target object into a proprietary VLM to generate the detailed reasoning process of how to locate the object correctly given the image and text prompt. The generated reasoning process is incorporated as part of the training data.
                                 <em>Bottom (b): Examples of generated reasoning training data for vanilla grounding and amodal grounding.</em> The reasoning process of vanilla grounding analyzes the feature that distinguishes the target object from others, and the reasoning process of amodal grounding further involves what object causes the occlusion and in which directions the visible parts should be extended to recover the complete object.
                             </span>
@@ -388,15 +394,6 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <!-- Figure 4 (Actual Image - Now the performance/latency chart) -->
-                    <div class="my-6">
-                        <!-- 修正: 直接指向本地图片 figure4.png, 失败时回退到占位符 -->
-                        <img src="figure4.jpeg" 
-                             alt="Performance (IoU) vs. Efficiency (Latency) Comparison" 
-                             class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+4+Placeholder%3A+Accuracy+vs.+Latency+Bubble+Chart'">
-                        <p class="text-sm text-center text-gray-500 mt-3">Figure 4: Performance (IoU) vs. Efficiency (Latency) Comparison on RefCOCO. Bubble size represents model parameters. EGM models demonstrate superior accuracy and efficiency compared to large-scale 'Go Bigger' VLMs.</p>
                     </div>
                 </section>
 
