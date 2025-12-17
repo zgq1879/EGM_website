@@ -104,7 +104,7 @@
                 <section id="overview" class="scroll-mt-24">
                     <div class="space-y-4">
             
-                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-normal">
                             <span class="gemini-gradient-text">Bigger or Longer?</span><br>
                             Test-Time-Scaling is More Efficient than Model-Size-Scaling for Visual Grounding
                         </h1>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         
-                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
+                        <p class="text-lg text-gray-600 leading-relaxed">
                             Current Visual Language Models (VLMs) tend to increase model parameters ("Go Bigger") to improve performance, leading to slow inference and difficult deployment. This project proposes a new paradigm, <strong>EGM (Efficient visual Grounding language Models)</strong>, demonstrating that by increasing test-time computation ("Go Longer"), small models can outperform large models in visual grounding tasks while being significantly faster.
                         </p>
                     </div>
@@ -148,7 +148,7 @@
                              alt="Performance (IoU) vs. Efficiency (Latency) Comparison" 
                              class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
                              onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+4+Placeholder%3A+Accuracy+vs.+Latency+Bubble+Chart'">
-                        <p class="text-sm text-center text-gray-500 mt-3">Figure 1: Performance (IoU) vs. Efficiency (Latency) Comparison on RefCOCO. Bubble size represents model parameters. EGM models demonstrate superior accuracy and efficiency compared to large-scale 'Go Bigger' VLMs.</p>
+                        <p class="text-sm text-left text-gray-500 mt-3">Figure 1: Performance (IoU) vs. Efficiency (Latency) Comparison on RefCOCO. Bubble size represents model parameters. EGM models demonstrate superior accuracy and efficiency compared to large-scale 'Go Bigger' VLMs.</p>
                     </div>
 
                     <!-- Key Takeaways Cards -->
@@ -186,7 +186,7 @@
                             alt="Comparison of Go Bigger vs Go Longer Scaling" 
                             class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
                             onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+1+Placeholder%3A+EGM+Paradigm'">
-                        <p class="text-sm text-center text-gray-500 mt-3">Figure 2: The EGM Paradigm. Comparison between the traditional 'Go Bigger' approach (scaling model size) and our proposed 'Go Longer' approach (scaling test-time computation/tokens) for Visual Grounding.</p>
+                        <p class="text-sm text-left text-gray-500 mt-3">Figure 2: The EGM Paradigm. Comparison between the traditional 'Go Bigger' approach (scaling model size) and our proposed 'Go Longer' approach (scaling test-time computation/tokens) for Visual Grounding.</p>
                     </div>
                 </section>
 
@@ -220,7 +220,7 @@
                                      alt="Breakdown of Small Model Failure Modes" 
                                      class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
                                      onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/94a3b8?text=Figure+2+Placeholder%3A+Failure+Modes'">
-                                <p class="text-sm text-center text-gray-500 mt-3">Figure 3: Visual Grounding Failure Modes Analysis. Detailed statistical breakdown showing that the majority of small VLM errors are due to complex semantic understanding, not visual encoding.</p>
+                                <p class="text-sm text-left text-gray-500 mt-3">Figure 3: Visual Grounding Failure Modes Analysis. Detailed statistical breakdown showing that the majority of small VLM errors are due to complex semantic understanding, not visual encoding.</p>
                             </div>
                         </div>
                     </div>
@@ -280,7 +280,7 @@
                              alt="Overview of the EGM Training Pipeline" 
                              class="w-full h-auto rounded-lg shadow-lg border border-gray-200" 
                              onerror="this.onerror=null; this.src='https://placehold.co/900x400/f1f5f9/94a3b8?text=Figure+3+Placeholder%3A+Training+Pipeline+Diagram'">
-                        <p class="text-sm text-center text-gray-500 mt-3">
+                        <p class="text-sm text-left text-gray-500 mt-3">
                             <span class="block mt-1">
                             Figure 4: Overview of our method.</strong> 
                                 <em>Top (a): Data curation pipeline of training data with reasoning.</em> We feed the image, text prompt and ground truth bounding box of the target object into a proprietary VLM to generate the detailed reasoning process of how to locate the object correctly given the image and text prompt. The generated reasoning process is incorporated as part of the training data.
